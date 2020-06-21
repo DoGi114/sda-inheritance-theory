@@ -1,43 +1,51 @@
 package pl.sda;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class Employee {
     private String name;
     private String surname;
-    private Long salary;
+    private BigDecimal salary;
     private Integer age;
 
+    public Employee(String name, String surname, BigDecimal salary, Integer age) {
+        this.name = name;
+        this.surname = surname;
+        this.salary = salary;
+        this.age = age;
+    }
+
+    public Employee(){
+
+    }
 
     public String getName() {
         return name;
     }
 
-    public Employee setName(String name) {
+    public void setName(String name) {
         this.name = name;
-        return this;
     }
 
     public String getSurname() {
         return surname;
     }
 
-    public Employee setSurname(String surname) {
+    public void setSurname(String surname) {
         this.surname = surname;
-        return this;
     }
 
-    public Long getSalary() {
+    public BigDecimal getSalary() {
         return salary;
     }
 
-    public Employee setSalary(Long salary) {
+    public void setSalary(BigDecimal salary) {
         this.salary = salary;
-        return this;
     }
 
-    public Long yearlySalary() {
-        return this.salary * 12;
+    public BigDecimal yearlySalary() {
+        return this.salary.multiply(new BigDecimal("12")) ;
     }
 
     @Override

@@ -1,61 +1,24 @@
 package pl.sda;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
         // funWithInheritance();
         /*
-        1. Utworz klase Accountant dziedziczaca po Employee, powinna dodatkowo:
-         - miec pole z informacja o przepracowanych latach (int) - pamietaj o setterach lub ustawieniu tego przez konstruktor
-         - roczna pensja powinna byc powiekszona o tyle razy ile wynosza przepracowane lata
-        2. Utworz klase FullstackProgrammer, ktora bedzie dziedziczyla z klasy JavaProgrammer, powinna dodatkowo:
-         - miec pole frontendLanguage (+setter)
-         - roczna pensja powinna byc powiekszona DODATKOWO WZGLEDEM PROGRAMISTY JAVA o 300%
+
         3. Do jednej z klas dopisz toString, tak aby po ich uruchomieniu było widoczne imie, nazwisko i roczna pensja
         4. Utworz obiekt każdej klasy i ustaw wynagrodzenia w każdym z nich na 1000, nie zapomnij o ustawieniu imienia i nazwiska
         5. Wypisz wszystkie obiekty na konsole, sprawdz czy zadanie zostalo wykonane prawidlowo
         ** pole salary zmien na BigDecimal
          */
 
-        Employee emp1 = new Employee();
-        emp1.setName("Jan");
-        emp1.setSurname("Kowalski");
-        emp1.setSalary(10_000L);
+        Employee employee = new Employee("Damian", "Nguyen", new BigDecimal("1000"), 27);
+        Accontant accontant = new Accontant("Damian", "Nguyen", new BigDecimal("1000"), 27, 5);
+        Programmer programmer = new Programmer("Damian", "Nguyen", new BigDecimal("1000"), 27, BackendLanguage.Delphi, SeniorityLevel.Mid);
+        JavaProgrammer javaProgrammer = new JavaProgrammer("Damian", "Nguyen", new BigDecimal("1000"), 27, SeniorityLevel.Junior);
+        FullstackProgrammer fullstackProgrammer = new FullstackProgrammer("Damian", "Nguyen", new BigDecimal("1000"), 27, FrontendLanguage.JS);
 
-        Employee emp2 = new Employee();
-        emp2.setName("Jan");
-        emp2.setSurname("Kowalski");
-        emp2.setSalary(10_000L);
-        //System.out.println(emp1.equals(emp2));
-
-        Programmer prog1 = new Programmer();
-        prog1.setName("Tomek");
-        prog1.setSurname("Kowalski");
-        prog1.setSeniorityLevel("Senior");
-        prog1.setBackendLanguage("Java");
-
-        Programmer prog2 = new Programmer();
-        prog2.setName("Tomek");
-        prog2.setSurname("Kowalski");
-        prog2.setSeniorityLevel("Senior");
-        prog2.setBackendLanguage("C++");
-
-        System.out.println(prog1.equals(prog2));
-
-        Employee emp3 = prog1;
-        //Programmer prog3 = emp1; //tak sie nie da!
-        Programmer prog3 = Programmer.from(emp1); //ale mozemy sobie "na piechote" stworzyc/przepisac pola
-
-        System.out.println(emp3.toString());
-
-
-        Cat cat = new Cat("KowalskiKot");
-        Dog dog = new Dog("KowalskiPies");
-
-        Animal animal1 = cat;
-        Animal animal2 = dog;
-        animal1.makeSound();
-
-        //Animal
 
     }
 

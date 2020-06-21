@@ -1,40 +1,38 @@
 package pl.sda;
 
-public class Programmer extends Employee {
-    private String backendLanguage;
-    private String seniorityLevel;
+import java.math.BigDecimal;
 
-    public String getBackendLanguage() {
+public class Programmer extends Employee {
+    private BackendLanguage backendLanguage;
+    private SeniorityLevel seniorityLevel;
+
+    public Programmer(String name, String surname, BigDecimal salary, Integer age, BackendLanguage backendLanguage, SeniorityLevel seniorityLevel) {
+        super(name, surname, salary, age);
+        this.backendLanguage = backendLanguage;
+        this.seniorityLevel = seniorityLevel;
+    }
+
+    public BackendLanguage getBackendLanguage() {
         return backendLanguage;
     }
 
-
-    public Programmer setBackendLanguage(String backendLanguage) {
+    public void setBackendLanguage(BackendLanguage backendLanguage) {
         this.backendLanguage = backendLanguage;
-        return this;
     }
 
-    public String getSeniorityLevel() {
+    public SeniorityLevel getSeniorityLevel() {
         return seniorityLevel;
     }
 
-    public Programmer setSeniorityLevel(String seniorityLevel) {
+    public void setSeniorityLevel(SeniorityLevel seniorityLevel) {
         this.seniorityLevel = seniorityLevel;
-        return this;
-    }
-
-    public static Programmer from(Employee emp1) {
-        Programmer programmer = new Programmer();
-        programmer.setName(emp1.getName());
-        programmer.setSurname(emp1.getSurname());
-        return programmer;
     }
 
     @Override
     public String toString() {
         return "Programmer{" +
-                "backendLanguage='" + backendLanguage + '\'' +
-                ", seniorityLevel='" + seniorityLevel + '\'' +
+                "backendLanguage='" + backendLanguage.getValue() + '\'' +
+                ", seniorityLevel='" + seniorityLevel.getValue() + '\'' +
                 '}';
     }
 }
